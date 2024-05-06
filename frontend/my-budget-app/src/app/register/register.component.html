@@ -1,0 +1,53 @@
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+       <div class="row border rounded-5 p-3 bg-white shadow box-area">
+       <div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box" style="background: #103cbe;">
+           <p class="text-white fs-2" style="font-family: 'Courier New', Courier, monospace; font-weight: 600;">B & E Tracker</p>
+           <small class="text-white text-wrap text-center" style="width: 17rem;font-family: 'Courier New', Courier, monospace;">Track your monthly expenses and budget here.</small>
+       </div> 
+        
+       <div class="col-md-6 right-box">
+          <div class="row align-items-center">
+                <div class="header-text mb-4">
+                     <h2>Please register here</h2>
+                </div>
+                <form class="user-resgister" [formGroup]="registerForm" (ngSubmit)="onRegister()">                    
+                    <div class="row">
+                      <div class="input-group mb-3">
+                        <input type="text" class="form-control mb-2" id="inputName" formControlName="name" placeholder="Name">
+                    </div>
+                      <div *ngIf="formControl.name.dirty && formControl.name.errors" class="text-danger mb-3">
+                        <div *ngIf="formControl.name.errors.required">Name is required.</div>
+                      </div>
+                      <div class="input-group mb-3">
+                        <input type="text" class="form-control mb-2" id="inputEmail" formControlName="email" placeholder="Email">
+                    </div>
+                      <div *ngIf="formControl.email.dirty && formControl.email.errors" class="text-danger mb-3">
+                        <div *ngIf="formControl.email.errors">Email should be valid.</div>
+                        <div *ngIf="formControl.email.errors.required">Email is required.</div>
+                      </div>
+                      <div class="input-group mb-1">
+                        <input type="password" class="form-control mb-2" id="inputPassword" formControlName="password" placeholder="Password">
+                      </div>
+                      <div *ngIf="formControl.password.dirty && formControl.password.errors" class="text-danger mb-3">
+                        <div *ngIf="formControl.password.errors.required">Password is required.</div>
+                        <div *ngIf="formControl.password.errors.pattern">
+                          <ul>
+                            <li>Password should be alphanumeric</li>
+                            <li>A letter of the password should be capital</li>
+                            <li>Password must contain a special character (@, $, !, &, etc)</li>
+                            <li>Password length must be greater than 7 characters</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <br>
+                    <div class="input-group mb-3">
+                      <button class="btn btn-lg btn-primary w-100 fs-6" [disabled]="!registerForm.valid" type="button" type="submit">Sign Up</button>
+                    </div>
+                  </form>
+          </div>
+       </div> 
+      </div>
+    </div>
+
+    
